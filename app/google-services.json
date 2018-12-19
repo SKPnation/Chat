@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "200849948257",
+    "firebase_url": "https://chat-1a9f9.firebaseio.com",
+    "project_id": "chat-1a9f9",
+    "storage_bucket": "chat-1a9f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200849948257:android:944a9b6124f4f551",
+        "android_client_info": {
+          "package_name": "com.example.ayomide.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200849948257-nm3pk004ijj11pl4kr3m9lf5g8n8u3rj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ayomide.chat",
+            "certificate_hash": "519b5153cc4482c5880f40a9c7c0f2fdea31e140"
+          }
+        },
+        {
+          "client_id": "200849948257-99acs7hlp44bthulgrd230jg6b91gh80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChtpmXw-Lw79wfDEgplWm53usi5XQ_F6k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200849948257-99acs7hlp44bthulgrd230jg6b91gh80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
