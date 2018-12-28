@@ -2,12 +2,13 @@ package com.example.ayomide.chat.Model;
 
 public class User {
 
-    private String id, username, imageURL;
+    private String id, username, imageURL, status;
 
-    public User(String id, String username, String imageURL) {
+    public User(String id, String username, String imageURL, String status) {
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
+        this.status = status;
     }
 
     public User() {
@@ -36,5 +37,13 @@ public class User {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
