@@ -83,7 +83,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         if(mChat.get(position).getSender().equals(fUser.getUid())){
             return MSG_TYPE_RIGHT;
         } else {
-            return MSG_TYPE_LEFT;
+            return MSG_TYPE_RIGHT;
         }
     }
 }

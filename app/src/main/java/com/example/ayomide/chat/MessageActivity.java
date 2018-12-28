@@ -30,9 +30,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MessageActivity extends AppCompatActivity {
 
-    ImageView profile_image;
+    CircleImageView profile_image;
     TextView username;
     Toolbar toolbar;
 
@@ -48,6 +50,8 @@ public class MessageActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     Intent intent;
+
+    String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +82,7 @@ public class MessageActivity extends AppCompatActivity {
 
         intent = getIntent();
         final String userid = intent.getStringExtra("userid");
+
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         btn_send.setOnClickListener( new View.OnClickListener() {
@@ -117,7 +122,7 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMessage(String sender, String receiver, String message){
+    private void sendMessage(String sender, final String receiver, String message){
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
@@ -127,6 +132,25 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("message", message);
 
         reference.child("Chats").push().setValue(hashMap);
+
+        //add user to chat fragment
+        final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
+                .child(fuser.getUid())
+                .child(receiver);
+
+        chatRef.addListenerForSingleValueEvent( new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()){
+                    chatRef.child("id").setValue(receiver);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
